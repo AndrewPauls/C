@@ -39,6 +39,15 @@ main()
 
 				case 1:				/* view entries */
 					printf("case 1\n");
+					int count0;
+					for (count0 = 0 ; count0 < 5 ; count0++) {
+						if (strcmp(usernames[count0], "") == 0) {continue;
+						}
+						else {
+						printf("username %d:\t%s\t\t", count0, usernames[count0]);
+						printf("password %d:\t%s\n", count0, passwords[count0]);
+						}
+					}
 					break;
 					
 
@@ -68,6 +77,39 @@ main()
 
 				case 3: 			/* modify entry */
 					printf("case 3\n");
+					printf("please enter the index of the entry you would like to modify");
+					int mod_index;
+					scanf(" %d", &mod_index);
+					if ((0 <= mod_index) && (mod_index < 6)) 
+					{
+						/* check if the value is even non empty */
+						if (strcmp(usernames[index], "") != 0)
+						{
+							printf("Please indicate if you would like to update the username (y/n)");
+							char decision;
+							scanf(" %c", &decision);
+							if (decision == 'y')
+							{
+								printf("Please enter the updated username now:");
+								char updated_username[20];
+								scanf(" %s", updated_username);
+								strcpy(usernames[mod_index], updated_username);
+							}
+
+							printf("Please indicate if you would like to update the password (y/n)");
+							char decision2;
+							scanf(" %c", &decision2);
+							if (decision2 == 'y')
+							{
+								printf("Please enter the updated password now:");
+								char updated_password[20];
+								scanf(" %s", updated_password);
+								strcpy(passwords[mod_index], updated_password);
+							}
+						}
+					}
+							
+
 					break;
 
 
@@ -90,8 +132,7 @@ main()
 					while_Active = false;
 					break;
 			}
-		}
-		else printf("Please enter a valid option next time\n");
+		} else printf("Please enter a valid option next time\n");
 		
 	}
 	printf("\n\n%s, upon request the application is now shutting down.", name);

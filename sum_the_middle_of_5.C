@@ -12,8 +12,14 @@ main()
 	int values[5];
 	
 	/* acquire the values from user */
-	printf("Please enter the 5 values you would like us to do the calculation on now (permissible range is 0 - 9999).");
-	scanf(" %d %d %d %d %d", values[0], values[1], values[2], values[3], values[4]);
+	printf("Please enter the 5 values you would like us to do the calculation on now (permissible range is 0 - 9999).\n");
+	scanf(" %d", &values[0]);
+	scanf(" %d", &values[1]);
+	scanf(" %d", &values[2]);
+	scanf(" %d", &values[3]);
+	scanf(" %d", &values[4]);
+	
+	printf("You entered: %d, %d, %d, %d, %d", values[0], values[1], values[2], values[3], values[4]);
 	
 	/* compute max and min values */
 	int max,  min;
@@ -32,6 +38,7 @@ main()
 	{
 	  if ((j % 2 == 0) || j == values[0] || j == values[1] || j == values[2] || j==values[3] || j==values[4])
 	  {
+		continue;
 	  }
 	  else 
 	  {
@@ -39,7 +46,7 @@ main()
 	  }
 	}
 	
-	printf("Number of odds: %", numOdds);
+	printf("Number of odds: %d", numOdds);
 	return 0;
 
 }

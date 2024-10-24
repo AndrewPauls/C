@@ -7,6 +7,7 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 
 main()
 {
@@ -47,20 +48,43 @@ main()
 	char cst = *(P_st);
 	
 
+	// to keep track of a perfect match, i will a bool
+	bool s_is_beginning_of_st = true;
+	bool t_is_end_of_st = true;
+	
+	printf("Done performing the check.\n");
+	if( s_is_beginning_of_st){
+	       	printf("s at beginning of st\n");
+	}
+
 	while( cs != '\0') {	// while char in s is not EOF
+		if(s_is_beginning_of_st) {
+			printf("YES\n");
+		}
 		if (cst == cs){	// if char in st = char in s
 			printf("Another char match: %c - %c.\n", cs, cst);
 			P_st++;
 			P_s++;			// increment pointers to s, t
 			cs = *(P_s);
 			cst = *(P_st);
-		}
+			
+			//checkin for wonky output... cs should hit null char at some point...
+			printf("Value of cs: %c\n", cs);		}
 		else 
 		{
+			s_is_beginning_of_st = false;
+			printf("shouldn't of gotten here...\n");
+			if(cs == '\0') {
+				printf("cs is equal to 'NULL'");
+			}
 			break;
 		}
 	}
 
+	printf("Done performing the check.\n");
+	if( s_is_beginning_of_st){
+	       	printf("s at beginning of st\n");
+	}
 	printf("Ok, we made it here...\n");
 
 	char ct = *(P_t);
@@ -75,8 +99,16 @@ main()
 		}
 		else
 		{
+			t_is_end_of_st = false;
 			break;
 		}
 	}
+
+	// currently done the check. lets return the outcome to user.
+	printf("Done performing the check.\n");
+	if( s_is_beginning_of_st){
+	       	printf("s at beginning of st\n");
+	}
+	printf("\nExiting program now.");
 }
 

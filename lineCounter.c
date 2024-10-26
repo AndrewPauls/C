@@ -1,6 +1,10 @@
+/* program copied from Ritchie and Kernighans The C Programming Language
+ *
+ * copied October 25, 2024
+ */
+
 #include <stdio.h>
 
-/* count lines in input */
 main()
 {
 	int c, nl;
@@ -11,3 +15,4 @@ main()
 			++nl;
 	printf("%d\n", nl);
 }
+
